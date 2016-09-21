@@ -1,0 +1,31 @@
+<header class="navbar navbar-fixed-top navbar-inverse">
+  <div class="container">
+    <nav>
+      <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            Account <b class="caret"></b>
+          </a>
+          <ul class="dropdown-menu">
+            <li><%= link_to "My home", sessions_new_path %></li>
+            <li><%= link_to "View profile", '/users/index' %></li>
+            <li><%= link_to "Edit profile", '/users/edit' %></li>
+            <li><%= link_to "Log out", logout_path, method: "delete" %></li>
+          </ul>
+        </li>
+        <li>Managing users:
+          <ul><%= link_to "View Admins", users_path %></ul>
+          <ul><%= link_to "Add Admin" , new_user_path %></ul>
+          <ul><%= link_to "Delete library member" , users_path %></ul>
+        </li>
+        <li>Books
+          <ul><%= link_to 'View all books', users_path %></ul>
+          <ul><%= link_to "Add a book", users_path %></ul>
+          <ul><%= link_to "Checkout for a member", users_path %></ul>
+          <ul><%= link_to "View Suggestions", users_path %></ul>
+          <ul><%= link_to "Checkout history", users_path %></ul>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>

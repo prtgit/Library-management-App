@@ -25,7 +25,7 @@ class BookingsController < ApplicationController
   # POST /bookings.json
   def create
     @booking = Booking.new(booking_params)
-    @booking.booked_by = to_s(@booking.user.name)
+    @booking.booked_by = User.find_by_id(@booking.user)
     respond_to do |format|
       if @booking.save
         format.html { redirect_to @booking, notice: 'Booking was successfully created.' }

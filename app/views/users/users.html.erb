@@ -1,0 +1,12 @@
+<% provide(:title, @current_user.name) %>
+<%= render 'users/users_common' %>
+
+<p>
+<h3>Hello <%= @current_user.name %>!! </h3>
+</p>
+<p>
+  <% if logged_in? %>
+      <%= render 'users/user_search_box' %>
+  <% end %>
+</p>
+

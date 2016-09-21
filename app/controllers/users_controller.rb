@@ -1,15 +1,27 @@
 class UsersController < ApplicationController
+  include SessionsHelper
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
   # GET /users
   # GET /users.json
   def index
-    @users = User.all
+    if logged_in_as_admin?
+      @users = User.where("is_admin = 't'")
+    else
+      #Invalid or no cookie recieved in request, flash error
+      redirect_to_home
+    end
   end
-
   # GET /users/1
   # GET /users/1.json
   def show
+    if !logged_in?
+      #Invalid or no cookie recieved in request, flash error
+      flash.now[:danger] = 'Please login to continue'
+      render 'sessions/new'
+    else
+      render 'users'
+    end
   end
 
   # GET /users/new
@@ -69,6 +81,6 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:email, :password_digest, :name, :is_admin, :is_root)
+      params.require(:user).permit(:email, :password, :name, :is_admin, :is_root)
     end
 end
