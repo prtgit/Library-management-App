@@ -20,11 +20,12 @@
       <%= f.label :room_id %><br />
       <%= select("booking", "room_id", Room.all.collect{ |c| [ c.number, c.id] }) %>
     </div>
-
+    <% if !logged_in_as_admin?%>
     <div class="field">
       <%= f.label :user_id %><br />
       <%= select("booking", "user_id", User.all.collect{ |c| [ c.name, c.id] }) %>
     </div>
+    <% end%>
 
   <div class="field">
     <%= f.label :cancelled_by %>

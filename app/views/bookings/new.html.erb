@@ -1,5 +1,7 @@
 <h1>New Booking</h1>
-
+<% if logged_in? %>
 <%= render 'form', booking: @booking %>
-
+<%else %>
+    <%= link_to "Login to continue", sessions_new_path %></li>
+<% end %>
 <%= link_to 'Back', bookings_path %>

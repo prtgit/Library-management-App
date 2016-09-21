@@ -28,7 +28,7 @@ module SessionsHelper
   end
 
   def logged_in_as_member?
-    current_user && current_user.is_lib_member && !session[:is_admin]
+    current_user && !current_user.is_admin && !session[:is_admin]
   end
 
   def redirect_to_home
