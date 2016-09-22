@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   get 'logout'  => 'sessions#destroy'
   get    'search'   => 'users#search'
   get    'users/search'   => 'users#search_user'
+  get    'rooms/search'   => 'rooms#search_room'
   resources :bookings
   resources :rooms
   resources :users

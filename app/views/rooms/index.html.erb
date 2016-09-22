@@ -1,8 +1,7 @@
+<br/>
 <p id="notice"><%= notice %></p>
 
-<h1>Rooms</h1>
-
-<table>
+<table class="table table-striped">
   <thead>
     <tr>
       <th>Number</th>
@@ -21,13 +20,14 @@
         <td><%= room.building %></td>
         <td><%= room.size %></td>
         <td><%= link_to 'Show', room %></td>
+        <% if logged_in_as_admin? %>
         <td><%= link_to 'Edit', edit_room_path(room) %></td>
         <td><%= link_to 'Destroy', room, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+         <% end %>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
+<br/>
 
-<%= link_to 'New Room', new_room_path %>
