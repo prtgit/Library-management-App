@@ -1,0 +1,12 @@
+<%= form_tag("/rooms/search", method: "get") do %>
+    <%= label_tag(:q, "Search for rooms here: ") %>
+    <%= text_field_tag(:q) %>
+    <br/>
+    <%= radio_button_tag(:search_by, "Building", checked: true) %>
+    <%= label_tag(:search_by_building, "Search by Building") %>
+    <%= radio_button_tag(:search_by, "size") %>
+    <%= label_tag(:search_by_size, "Search by size") %>
+    <br/>
+    <%= submit_tag("search") %>
+<% end %>
+

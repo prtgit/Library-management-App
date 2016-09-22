@@ -61,6 +61,22 @@ class RoomsController < ApplicationController
     end
   end
 
+  def search_room
+    if params[:search_by] == "Building"
+      #TODO put checks here that field should not be empty
+      #TODO page results here, make it case insensitive
+      @rooms = Room.where("building like ? ", "%#{params[:q]}%")
+      @query = params[:q]
+    elsif params[:search_by] == "size"
+      @rooms = Room.where("size like ? ", "%#{params[:q]}%") # changing ==to = for postgres
+      @query = params[:q]
+    else
+      flash.now[:danger] = "Search failed, remember to select a criteria."
+      render 'rooms/index'
+    end
+
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_room
