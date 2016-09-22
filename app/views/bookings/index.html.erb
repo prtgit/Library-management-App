@@ -2,10 +2,10 @@
 
 <h1>Bookings</h1>
 
-<table>
+<table class="table table-striped">
   <thead>
     <tr>
-      <th>Booking</th>
+      <th>Booking Time</th>
       <th>User</th>
       <th>Room</th>
       <th>Cancelled by</th>
@@ -19,14 +19,17 @@
     <% @bookings.each do |booking| %>
       <tr>
         <td><%= booking.booking %></td>
-        <td><%= booking.user.name %></td>
+        <td><%= (User.find(booking.user_id)).name %></td>
         <td><%= booking.room.number %></td>
         <td><%= booking.cancelled_by %></td>
         <td><%= booking.cancelled %></td>
         <td><%= booking.booked_by %></td>
         <td><%= link_to 'Show', booking %></td>
+        <%if(session[:user_id] == booking.user_id)%>
         <td><%= link_to 'Edit', edit_booking_path(booking) %></td>
-        <td><%= link_to 'Destroy', booking, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+
+        <td><%= link_to 'Delete', booking, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <%end%>
       </tr>
     <% end %>
   </tbody>

@@ -1,16 +1,17 @@
 <% provide(:title, "User search") %>
 <%= render 'users/users_common' %>
+<div>
 <p>
 	<%= render 'users/user_search_box' %>
 </p>
 Displaying search results for "<%= @query %>"
 <ul>
-  <table class="table-striped">
+  <table class="table table-striped">
 	<thead>
 	  <tr>
 		<th>Member name</th>
 		<th>email</th>
-		<th>Checkout history</th>
+		<th>Bookings</th>
 		<th>Delete member</th>
 		<th colspan="3"></th>
 	  </tr>
@@ -22,10 +23,11 @@ Displaying search results for "<%= @query %>"
 		<tr>
       <td><%= user.name %></td>
       <td><%= user.email %></td>
-      <td><%= button_to "Checkout history", "/users/checkout_history/#{user.id}", method: :get %></td>
+      <td><%= button_to "Booking history", "/users/checkout_history/#{user.id}", method: :get %></td>
 	  <td><%= button_to 'Update Member' ,edit_user_path(user), method: :get %></td>
 		</tr>
 <% end %>
 	</tbody>
   </table>
 </ul>
+</div>

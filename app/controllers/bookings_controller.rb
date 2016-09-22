@@ -26,7 +26,7 @@ class BookingsController < ApplicationController
   # POST /bookings.json
   def create
     @booking = Booking.new(booking_params)
-    @booking.booked_by = User.find_by_id(@booking.user)
+    @booking.booked_by = session[:user_id]
     respond_to do |format|
       if @booking.save
         format.html { redirect_to @booking, notice: 'Booking was successfully created.' }
@@ -70,6 +70,6 @@ class BookingsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def booking_params
-      params.require(:booking).permit(:user, :room ,:booking, :cancelled_by, :cancelled, :booked_by)
+      params.require(:booking).permit(:user_id, :room_id ,:booking, :cancelled_by, :cancelled, :booked_by)
     end
 end

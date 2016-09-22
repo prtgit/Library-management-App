@@ -1,7 +1,18 @@
 <% provide(:title, "Home") %>
-<p>
-  Welcome to Library Room Booking <br/>
-  <%= link_to "Login to continue", sessions_new_path %></li>
-  <br>
-  <%= link_to "Not a Member? Sign Up!", new_user_path %></li>
+<br/>
+<%if !logged_in?%>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+<p align="center">
+  <%= button_to "Login to continue", sessions_new_path,:class => "btn btn-success", :method => :get %>
 </p>
+<br>
+<p align="center">
+  <%= button_to "Not a Member? Sign Up!", new_user_path,:class => "btn btn-info", :method => :get %>
+</p>
+</div>
+  </div>
+    <%else%>
+    <br/>
+    <h1><span class="label label-primary">Welcome <%= @current_user.name %></span></h1>
+<% end %>

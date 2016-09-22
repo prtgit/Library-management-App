@@ -1,14 +1,42 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title><%= yield(:title) %> | First try</title>
+  <head style="margin-bottom: auto">
+    <title><%= yield(:title) %> | Library</title>
     <%= csrf_meta_tags %>
 
     <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" />
     <%= javascript_include_tag :defaults%>
+    <%if(logged_in? && logged_in_as_admin?)%>
+        <header class="navbar navbar-fixed-top" style="margin-bottom: 10px;">
+          <div class="container">
+            <nav>
+              <ul class="nav navbar-nav navbar-right">
+                <li><div class="col-md-3"><%= link_to 'New User', new_user_path %></div></li>
+                <li> <div class="col-md-3"><%= link_to 'New Room', new_room_path %></div></li>
+                <li><div class="col-md-3"><%= link_to 'New Booking', new_booking_path %></div></li>
+                <li><%= link_to "Logout", logout_path %></li>
+              </ul>
+            </nav>
+          </div>
+        </header><%end%>
+    <%if(logged_in? && !logged_in_as_admin?)%>
+            <header class="navbar navbar-fixed-top" style="margin-bottom: 10px;">
+              <div class="container">
+                <nav>
+                  <ul class="nav navbar-nav navbar-right">
+                    <li><div class="col-md-5"><%= link_to 'Edit Profile', edit_user_path(@current_user.id) %></div></li>
+                    <li> <div class="col-md-5"><%= link_to 'Room Schedule', bookings_path %></div></li>
+                    <li><div class="col-md-5"><%= link_to 'New Booking', new_booking_path %></div></li>
+                    <li><%= link_to "Logout", logout_path %></li>
+                  </ul>
+                </nav>
+              </div>
+            </header>
+
+    <%end%>
   </head>
 
-  <body>
+  <body style="margin-top: 10px;">
     <%= yield %>
   </body>
 </html>
