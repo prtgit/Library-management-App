@@ -1,4 +1,5 @@
-<%= form_for(user) do |f| %>
+<%= form_for(user,:html => {:class => 'form'}) do |f| %>
+
   <% if user.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
@@ -11,27 +12,27 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :email %>
-    <%= f.text_field :email %>
+  <div class="form-group">
+     <%= f.label :email %>
+    <%= f.text_field(:email, class:"form-control") %>
   </div>
 
-    <div class="field">
-      <%= f.label :password %><br>
-      <%= f.password_field :password %>
+    <div class="form-group">
+      <%= f.label :password %>
+      <%= f.password_field(:password,class:"form-control") %>
     </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :name %>
-    <%= f.text_field :name %>
+    <%= f.text_field(:name,class:"form-control") %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :is_admin %>
     <%= f.check_box :is_admin %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :is_root %>
     <%= f.check_box :is_root %>
   </div>
@@ -39,4 +40,5 @@
   <div class="actions">
     <%= f.submit %>
   </div>
+    </div>
 <% end %>

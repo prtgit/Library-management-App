@@ -1,6 +1,5 @@
 class UsersController < ApplicationController
   include SessionsHelper
-  before_action :set_user, only: [:show, :edit, :update, :destroy]
 
   # GET /users
   # GET /users.json
@@ -31,6 +30,9 @@ class UsersController < ApplicationController
 
   # GET /users/1/edit
   def edit
+    if params[:id]!= nil
+      @user = User.find(params[:id])
+    end
   end
 
   # POST /users
@@ -73,11 +75,31 @@ class UsersController < ApplicationController
     end
   end
 
+  def search_user
+    if !logged_in_as_admin?
+      #Invalid or no cookie recieved in request, flash error
+
+      redirect_to_home
+    end
+    if params[:search_by] == "email"
+      #TODO put checks here that field should not be empty
+      #TODO page results here, make it case insensitive
+      @users = User.where("email like ? ", "%#{params[:q]}%")
+      @query = params[:q]
+    elsif params[:search_by] == "name"
+      @users = User.where("name like ? ", "%#{params[:q]}%") # changing ==to = for postgres
+      @query = params[:q]
+    else
+      flash.now[:danger] = "Search failed, remember to select a criteria."
+      render 'users'
+    end
+
+  end
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_user
-      @user = User.find(params[:email])
-    end
+  #def set_user
+    # @user = User.find(params[:id])
+  # end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params

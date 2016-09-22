@@ -1,12 +1,11 @@
 <p id="notice"><%= notice %></p>
-
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" />
 <h1>Users</h1>
 
-<table>
+<table class="table table-striped">
   <thead>
     <tr>
       <th>Email</th>
-      <th>Password digest</th>
       <th>Name</th>
       <th>Is admin</th>
       <th>Is root</th>
@@ -31,7 +30,7 @@
 
 <br>
 
-<%= link_to 'New User', new_user_path %>
-<%= link_to 'New Room', new_room_path %>
-<%= link_to 'New Booking', new_booking_path %>
-<%= link_to "Login to continue", sessions_new_path %></li>
+<div class="col-sm-3"><%= link_to 'New User', new_user_path %></div>
+  <div class="col-sm-3"><%= link_to 'New Room', new_room_path %></div>
+    <div class="col-sm-3"><%= link_to 'New Booking', new_booking_path %></div>
+      <div class="col-sm-3"><%= link_to "Login to continue", sessions_new_path %></li></div>

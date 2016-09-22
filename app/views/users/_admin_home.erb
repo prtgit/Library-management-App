@@ -18,12 +18,12 @@
           <ul><%= link_to "Add Admin" , new_user_path %></ul>
           <ul><%= link_to "Delete library member" , users_path %></ul>
         </li>
-        <li>Books
-          <ul><%= link_to 'View all books', users_path %></ul>
-          <ul><%= link_to "Add a book", users_path %></ul>
-          <ul><%= link_to "Checkout for a member", users_path %></ul>
-          <ul><%= link_to "View Suggestions", users_path %></ul>
-          <ul><%= link_to "Checkout history", users_path %></ul>
+        <li>Rooms
+          <ul><%= link_to 'View all rooms', rooms_path %></ul>
+          <ul><%= link_to "Add a room", new_room_path %></ul>
+          <ul><%= link_to "Create a booking", new_booking_path %></ul>
+          <ul><%= link_to "View bookings", bookings_path %></ul>
+          <!--ul< link_to "Checkout history", users_path %</ul> -->
         </li>
       </ul>
     </nav>
