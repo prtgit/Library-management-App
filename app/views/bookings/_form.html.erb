@@ -19,6 +19,12 @@
     <div class="form-group">
       <%= f.label :room_id %>
         <%= select("booking", "room_id", Room.all.collect{ |c| [ c.number , c.id] },{},{ :class => 'form-control'}) %></div>
+
+  <div class="form-group">
+    <%= f.label :cancelled %>
+    <%= f.check_box(:cancelled) %>
+  </div>
+  
     <% if logged_in_as_admin?%>
     <div class="form-group">
       <%= f.label :user_id %>
@@ -31,10 +37,7 @@
     <%= f.text_field(:cancelled_by,class:"form-control") %>
   </div>
 
-  <div class="form-group">
-    <%= f.label :cancelled %>
-    <%= f.check_box(:cancelled) %>
-  </div>
+
 
   <div class="form-group">
     <%= f.label :booked_by %>
