@@ -1,5 +1,8 @@
 <br/>
 <p id="notice"><%= notice %></p>
+<%if @bookingsWeek.count == 0%>
+    <b>This room is available at all times today. Go ahead and book!!</b>
+ <%else%>
 <table class="table table-striped">
   <thead>
   <tr>
@@ -17,7 +20,7 @@
       </tr>
   </tbody>
 </table>
-
+<%end%>
 <br>
 
 <%= link_to 'New Booking', new_booking_path %>
