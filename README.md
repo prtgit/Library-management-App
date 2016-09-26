@@ -1,24 +1,18 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Welcome to the Library Management application. Also, Thanks for taking the time out to read this.
 
-Things you may want to cover:
+Test Cases:
 
-* Ruby version
+##Entry Point
 
-* System dependencies
+* You will not be able to sign up as an admin.
+* However, we have a root user with the following credentials:
+Email: admin@admin.com
+Password: password
+Sign up as a library member and go to manage users from the root login.
+You can upgrade your membership to have admin access.
 
-* Configuration
+Thank you!!
 
-* Database creation
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
