@@ -33,13 +33,13 @@ class BookingsController < ApplicationController
     @booking.booked_by = User.find(session[:user_id]).name
     @booking.user_id = session[:user_id]
     #@allbookings = Booking.where("room_id= ?","#{booking_params[:room_id]}")
-    #if(@booking.booking> Time.now + 7.days || @booking.booking < Time.now)
-     # respond_to do |format|
-      #  format.html { redirect_to new_booking_path ,notice: "Check your dates. Bookings cannot be made for the past or beyond 7 days from now!!"}
-       # format.json { render json: @booking.errors, status: :unprocessable_entity }
-     # end
-      #return
-    #end
+    if(@booking.booking> Time.now + 7.days || @booking.booking < Time.now)
+     respond_to do |format|
+      format.html { redirect_to new_booking_path ,notice: "Check your dates. Bookings cannot be made for the past or beyond 7 days from now!!"}
+      format.json { render json: @booking.errors, status: :unprocessable_entity }
+     end
+      return
+    end
     @allbookings = Booking.where("cancelled =? AND room_id= ?",'f',"#{booking_params[:room_id]}")
     @allbookings.each do |book|
 
