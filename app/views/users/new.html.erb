@@ -1,6 +1,9 @@
 <br/>
 <p id="notice"><%= notice %></p>
-<%if !logged_in?%>
+<%if logged_in_as_admin?%>
 <%= render 'form', user: @user %>
+<%else%>
+    <h1>You need to admin privileges to do this!</h1>
 <% end %>
+
 <%= link_to 'Back', users_path %>
