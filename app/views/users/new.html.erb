@@ -1,6 +1,6 @@
 <br/>
 <p id="notice"><%= notice %></p>
-<%if logged_in_as_admin?%>
+<%if !logged_in? || logged_in_as_admin?%>
 <%= render 'form', user: @user %>
 <%else%>
     <h1>You need to admin privileges to do this!</h1>
