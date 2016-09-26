@@ -1,12 +1,14 @@
 <%= form_tag("/rooms/search", method: "get") do %>
     <%= label_tag(:q, "Search for rooms here: ") %>
-    <%= text_field_tag(:q) %>
+    <%= text_field_tag(:q) %> <i>*Leave blank to view all</i>
     <br/>
     <%= radio_button_tag(:search_by, "Building", checked: true) %>
     <%= label_tag(:search_by_building, "Search by Building") %>
     <%= radio_button_tag(:search_by, "size") %>
     <%= label_tag(:search_by_size, "Search by size") %>
+    <%= radio_button_tag(:search_by, "Number") %>
+    <%= label_tag(:search_by_size, "Search by number") %>
     <br/>
-    <%= submit_tag("search") %>
+    <%= submit_tag "Search Rooms!", class:"btn btn-primary" %>
 <% end %>
 

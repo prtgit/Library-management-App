@@ -1,5 +1,5 @@
 class RoomsController < ApplicationController
-  before_action :set_room, only: [:show, :edit, :update, :destroy]
+  before_action :set_room, only: [:show, :schedule_room,:edit, :update, :destroy]
 
   # GET /rooms
   # GET /rooms.json
@@ -17,10 +17,13 @@ class RoomsController < ApplicationController
     @room = Room.new
   end
 
+  #GET /rooms/1/schedule_room
+  def schedule_room
+    @bookingsWeek = Booking.where("cancelled =? AND room_id= ? AND booking > ? AND booking < ?",'f',"#{@room.id}",Time.now.beginning_of_day,Time.now.end_of_day ).order(:booking)
+  end
   # GET /rooms/1/edit
   def edit
   end
-
   # POST /rooms
   # POST /rooms.json
   def create
@@ -69,6 +72,9 @@ class RoomsController < ApplicationController
       @query = params[:q]
     elsif params[:search_by] == "size"
       @rooms = Room.where("size like ? ", "%#{params[:q]}%") # changing ==to = for postgres
+      @query = params[:q]
+    elsif params[:search_by] == "Number"
+      @rooms = Room.where("number =? ", "#{params[:q]}") # changing ==to = for postgres
       @query = params[:q]
     else
       flash.now[:danger] = "Search failed, remember to select a criteria."

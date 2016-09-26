@@ -1,17 +1,16 @@
 <% provide(:title, @current_user.name) %>
+<div style="margin: 5%">
 <p id="notice"><%= notice %></p>
 <%= render 'users/users_common' %>
 <br/>
 <p>
-<h1><span class="label label-primary">Welcome <%= @current_user.name %>  </span></h1>
-</p>
-<br/><br/>
-<p>
-  <% if logged_in? %>
+  <% if logged_in? && logged_in_as_admin? %>
       <%= render 'users/user_search_box' %>
       <br/>
-      <%= render 'rooms/room_search_box' %>
   <% end %>
+      <%= render 'rooms/room_search_box' %>
+
 </p>
 <br/>
+</div>
 

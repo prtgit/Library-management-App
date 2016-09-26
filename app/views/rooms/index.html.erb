@@ -5,10 +5,9 @@
   <thead>
     <tr>
       <th>Number</th>
-      <th>Status</th>
       <th>Building</th>
       <th>Size</th>
-      <th colspan="3"></th>
+      <th colspan="4"></th>
     </tr>
   </thead>
 
@@ -16,10 +15,10 @@
     <% @rooms.each do |room| %>
       <tr>
         <td><%= room.number %></td>
-        <td><%= room.status %></td>
         <td><%= room.building %></td>
         <td><%= room.size %></td>
         <td><%= link_to 'Show', room %></td>
+        <td><%= link_to 'Status for today', "/rooms/schedule_room/#{room.id}" %></td>
         <% if logged_in_as_admin? %>
         <td><%= link_to 'Edit', edit_room_path(room) %></td>
         <td><%= link_to 'Destroy', room, method: :delete, data: { confirm: 'Are you sure?' } %></td>

@@ -1,3 +1,4 @@
+<br/>
 <p id="notice"><%= notice %></p>
 
 <table class="table table-striped">
@@ -6,7 +7,7 @@
       <th>Booking Time</th>
       <th>User</th>
       <th>Room</th>
-      <th>Cancelled by</th>
+      <!--<th>Cancelled by</th>-->
       <th>Cancelled</th>
       <th>Booked by</th>
       <th colspan="3"></th>
@@ -19,11 +20,11 @@
         <td><%= booking.booking %></td>
         <td><%= (User.find(booking.user_id)).name %></td>
         <td><%= booking.room.number %></td>
-        <td><%= booking.cancelled_by %></td>
+        <!--<td><%= booking.cancelled_by %></td>-->
         <td><%= booking.cancelled %></td>
-        <td><%= booking.booked_by %></td>
+        <td><%= booking.booked_by%></td>
         <td><%= link_to 'Show', booking %></td>
-        <%if(session[:user_id] == booking.user_id)%>
+        <%if(session[:user_id] == booking.user_id)||logged_in_as_admin?%>
         <td><%= link_to 'Edit', edit_booking_path(booking) %></td>
 
         <td><%= link_to 'Delete', booking, method: :delete, data: { confirm: 'Are you sure?' } %></td>

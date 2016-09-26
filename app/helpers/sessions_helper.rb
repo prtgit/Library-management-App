@@ -1,7 +1,5 @@
 module SessionsHelper
 
-  # Logs in the given user.
-  # Stores the id as sess id, this id is encryted and sent as cookie
   def log_in(user, role)
     session[:user_id] = user.id
     #storing role in session to allow same user to login as admin/lib_member
@@ -10,7 +8,7 @@ module SessionsHelper
 
   # Returns the current logged-in user (if any).
   def current_user
-    @current_user ||= User.find_by(id: session[:user_id])
+    @current_user = User.find_by(id: session[:user_id])
   end
 
   def log_out

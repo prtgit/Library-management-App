@@ -1,0 +1,23 @@
+<br/>
+<p id="notice"><%= notice %></p>
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <% @bookingsWeek.each do |booking| %>
+    <th><%=(booking.booking.strftime("%H:%M"))%> - <%=(booking.booking + 2.hours).strftime("%H:%M")%></th>
+    <% end %>
+  </tr>
+  </thead>
+
+  <tbody>
+      <tr>
+        <% @bookingsWeek.each do |booking| %>
+        <td>Booked</td>
+            <% end %>
+      </tr>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Booking', new_booking_path %>

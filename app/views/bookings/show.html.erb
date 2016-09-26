@@ -1,3 +1,4 @@
+<br/>
 <p id="notice"><%= notice %></p>
 
 <p>
@@ -5,20 +6,22 @@
   <%= @booking.booking %>
 </p>
 
-<p>
+<!--<p>
   <strong>Cancelled by:</strong>
-  <%= @booking.cancelled_by %>
-</p>
+  %= @booking.cancelled_by %>
+</p>-->
 
-<p>
-  <strong>Cancelled:</strong>
-  <%= @booking.cancelled %>
-</p>
 
 <p>
   <strong>Booked by:</strong>
   <%= @booking.booked_by %>
 </p>
+<% if  @booking.cancelled %>
+<p>
+  <strong>Cancelled:</strong>
+  <%= @booking.cancelled %>
+</p>
+    <% end %>
 
 <!-- %= link_to 'Edit', edit_booking_path(@booking) %> |-->
 <%= link_to 'Back', bookings_path %>

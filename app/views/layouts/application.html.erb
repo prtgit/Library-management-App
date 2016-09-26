@@ -7,29 +7,35 @@
     <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" />
     <%= javascript_include_tag :defaults%>
     <%if(logged_in? && logged_in_as_admin?)%>
-        <header class="navbar navbar-fixed-top navbar-inverse" style="margin-bottom: 10px;">
+        <header class="navbar navbar-fixed-top row" style=" background-color: #76e5e7 ;margin-bottom: 10px;">
             <nav>
-              <ul class="nav navbar-nav">
-                <li><div class="col-md-3"><span class="glyphicon glyphicon-home" aria-hidden="true"><%= link_to 'Home', root_path %></span></div></li>
-                <li><div class="col-md-3"><span class="glyphicon glyphicon-user" aria-hidden="true"><%= link_to 'New User', new_user_path %></span></div></li>
-                <li> <div class="col-md-3"><span class="glyphicon glyphicon-registration-mark" aria-hidden="true"><%= link_to 'New Room', new_room_path %></span></div></li>
-                <li><div class="col-md-3"><span class="glyphicon glyphicon-bell" aria-hidden="true"><%= link_to 'New Booking', new_booking_path %></span></div></li>
-                <li><div class="col-md-8"><span class="glyphicon glyphicon-off" aria-hidden="true"><%= link_to "Logout", logout_path %></span></div></li>
+              <ul class="nav nav-pills">
+                <li role="presentation"><div class="col-md-8"><span class="label label-success">Welcome <%= @current_user.name %>  </span></div></li>
+                <li role="presentation" ><div class="col-md-3"><%= link_to 'Home', root_path %></div></li>
+                <li role="presentation" ><div class="col-md-3"><%= link_to 'New User', new_user_path %></div></li>
+                <li role="presentation" > <div class="col-md-3"><%= link_to 'New Room', new_room_path %></div></li>
+                <li role="presentation" ><div class="col-md-3"><%= link_to 'New Booking', new_booking_path %></div></li>
+                <li role="presentation" ><div class="col-md-3"><%= link_to "Manage Users", users_path %></div></li>
+                <li role="presentation" ><div class="col-md-3"><%= link_to "Manage Rooms", rooms_path %></div></li>
+                <li role="presentation" ><div class="col-md-3"><%= link_to "Manage Bookings", bookings_path %></div></li>
+                <li role="presentation" ><div class="col-md-3"><%= link_to "Edit My Profile", edit_user_path(@current_user.id) %></div></li>
+                <li role="presentation"><div class="col-md-6"><span class="glyphicon glyphicon-off" aria-hidden="true"><%= link_to "Logout", logout_path %></span></div></li>
               </ul>
             </nav>
         </header><%end%>
     <%if(logged_in? && !logged_in_as_admin?)%>
-            <header class="navbar navbar-fixed-top container" style="margin-bottom: 10px;">
-                <nav>
-                  <ul class="nav navbar-nav navbar-right">
-                    <li><div class="col-md-3"><span class="glyphicon glyphicon-search" aria-hidden="true" onclick=<%redirect_to root_path%>></span></div></li>
-                    <li><div class="col-md-5"><%= link_to 'Edit Profile', edit_user_path(@current_user.id) %></div></li>
-                    <li> <div class="col-md-5"><%= link_to 'Room Schedule', bookings_path %></div></li>
-                    <li><div class="col-md-5"><%= link_to 'New Booking', new_booking_path %></div></li>
-                    <li><%= link_to "Logout", logout_path %></li>
-                  </ul>
-                </nav>
-            </header>
+        <header class="navbar navbar-fixed-top row" style=" background-color: #76e5e7 ;margin-bottom: 10px;">
+          <nav>
+            <ul class="nav nav-pills">
+              <li role="presentation"><div class="col-md-8"><span class="label label-success">Welcome <%= @current_user.name %>  </span></div></li>
+              <li role="presentation" ><div class="col-md-3"><%= link_to 'Home', root_path %></div></li>
+              <li role="presentation" ><div class="col-md-3"><%= link_to 'New Booking', new_booking_path %></div></li>
+              <li role="presentation" ><div class="col-md-3"><%= link_to "Manage Bookings", bookings_path %></div></li>
+              <li role="presentation" ><div class="col-md-3"><%= link_to "Edit My Profile", edit_user_path(@current_user.id) %></div></li>
+              <li role="presentation"><div class="col-md-6"><span class="glyphicon glyphicon-off" aria-hidden="true"><%= link_to "Logout", logout_path %></span></div></li>
+            </ul>
+          </nav>
+        </header>
 
     <%end%>
   </head>

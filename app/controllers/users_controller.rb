@@ -5,7 +5,8 @@ class UsersController < ApplicationController
   # GET /users.json
   def index
     if logged_in_as_admin?
-      @users = User.where("is_admin = 't'")
+      @users = User.all.order(:is_admin)
+      @count =@users.count
     else
       #Invalid or no cookie recieved in request, flash error
       redirect_to_home
@@ -18,11 +19,13 @@ class UsersController < ApplicationController
       #Invalid or no cookie recieved in request, flash error
       flash.now[:danger] = 'Please login to continue'
       render 'sessions/new'
-    else
-      render 'users'
-    end
+      end
+    else if logged_in_as_admin? || @current_user.id == params[:id]
+      if params[:id]!= nil
+        @user = User.find(params[:id])
+      end
   end
-
+end
   # GET /users/new
   def new
     @user = User.new
@@ -38,8 +41,16 @@ class UsersController < ApplicationController
   # POST /users
   # POST /users.json
   def create
-    @user = User.new(user_params)
 
+    @user = User.new(user_params)
+    if(!@user.is_admin)
+      @user.is_admin = false
+    end
+    @user.is_root = false
+    if(User.all.count == 0)
+          @user.is_admin = true
+          @user.is_root = true
+    end
     respond_to do |format|
       if @user.save
         format.html { redirect_to @user, notice: 'User was successfully created.' }
@@ -54,6 +65,7 @@ class UsersController < ApplicationController
   # PATCH/PUT /users/1
   # PATCH/PUT /users/1.json
   def update
+    @user = User.find(params[:id])
     respond_to do |format|
       if @user.update(user_params)
         format.html { redirect_to @user, notice: 'User was successfully updated.' }
