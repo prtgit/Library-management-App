@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1d8c8cdb-d907-45ae-a06f-aeb502768ae0" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/users_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/users_controller.rb" />
     </list>
     <ignored path="firstTry.iws" />
@@ -173,8 +174,11 @@
         <entry file="file://$PROJECT_DIR$/app/controllers/users_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="34">
-              <caret line="2" column="3" selection-start-line="2" selection-start-column="3" selection-end-line="2" selection-end-column="3" />
-              <folding />
+              <caret line="2" column="2" selection-start-line="2" selection-start-column="2" selection-end-line="2" selection-end-column="2" />
+              <folding>
+                <element signature="e#2270#2923#0" expanded="false" />
+                <element signature="e#3158#3263#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -777,12 +781,12 @@
       <workItem from="1474420487584" duration="50873000" />
       <workItem from="1474564333819" duration="819000" />
       <workItem from="1474653067739" duration="17459000" />
-      <workItem from="1474821477216" duration="35499000" />
+      <workItem from="1474821477216" duration="35739000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="104767000" />
+    <option name="totallyTimeSpent" value="105007000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="54" y="-8" width="1554" height="916" extended-state="6" />
@@ -1288,8 +1292,11 @@
     <entry file="file://$PROJECT_DIR$/app/controllers/users_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
-          <caret line="2" column="3" selection-start-line="2" selection-start-column="3" selection-end-line="2" selection-end-column="3" />
-          <folding />
+          <caret line="2" column="2" selection-start-line="2" selection-start-column="2" selection-end-line="2" selection-end-column="2" />
+          <folding>
+            <element signature="e#2270#2923#0" expanded="false" />
+            <element signature="e#3158#3263#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
