@@ -119,30 +119,37 @@
       <data-type>INTEGER(0,-1)|4</data-type>
     </column>
     <column id="38" parent="7" name="email">
-      <data-type>VARCHAR(0,-1)|12</data-type>
+      <data-type>TEXT(0,-1)|12</data-type>
     </column>
     <column id="39" parent="7" name="password_digest">
-      <data-type>VARCHAR(0,-1)|12</data-type>
+      <data-type>TEXT(0,-1)|12</data-type>
     </column>
     <column id="40" parent="7" name="name">
-      <data-type>VARCHAR(0,-1)|12</data-type>
+      <data-type>TEXT(0,-1)|12</data-type>
     </column>
     <column id="41" parent="7" name="is_admin">
-      <data-type>BOOLEAN(0,-1)|4</data-type>
+      <data-type>INTEGER(0,-1)|4</data-type>
     </column>
     <column id="42" parent="7" name="is_root">
-      <data-type>BOOLEAN(0,-1)|4</data-type>
+      <data-type>INTEGER(0,-1)|4</data-type>
     </column>
     <column id="43" parent="7" name="created_at">
       <mandatory>1</mandatory>
-      <data-type>DATETIME(0,-1)|12</data-type>
+      <data-type>TEXT(0,-1)|12</data-type>
     </column>
     <column id="44" parent="7" name="updated_at">
       <mandatory>1</mandatory>
-      <data-type>DATETIME(0,-1)|12</data-type>
+      <data-type>TEXT(0,-1)|12</data-type>
     </column>
-    <key id="45" parent="7">
+    <index id="45" parent="7" name="sqlite_autoindex_users_1">
+      <name-surrogate>1</name-surrogate>
       <columns>id</columns>
+      <desc-columns />
+      <unique>1</unique>
+    </index>
+    <key id="46" parent="7">
+      <columns>id
+id</columns>
       <primary>1</primary>
     </key>
   </database-model>

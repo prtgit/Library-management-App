@@ -18,7 +18,11 @@
       <tr>
         <td><%= user.email %></td>
         <td><%= user.name %></td>
-        <td><%= user.is_admin %></td>
+        <%if user.is_admin == true%>
+        <td><%= "True" %></td>
+            <%else%>
+            <td><%= "False" %></td>
+            <%end%>
         <td><%= user.is_root %></td>
       <%if user.is_admin == true%>
             <td><%= link_to 'Manage Admin', edit_user_path(user) %></td>
@@ -26,8 +30,8 @@
             <td><%= link_to 'Manage Library Member', edit_user_path(user) %></td>
             <%end%>
         <td><%= link_to 'Show', (user) %></td>
-        <%if logged_in_as_admin? && user.is_root== false && user.id!=session[:user_id]%>
-        <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <%if user.is_root != true && logged_in_as_admin? && user.id!=session[:user_id]%>
+        <td><%= button_to 'Delete', user, method: :delete %></td>
             <% end %>
       </tr>
     <% end %>

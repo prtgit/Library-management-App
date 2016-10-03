@@ -21,7 +21,7 @@
         <td><%= link_to 'Status for today', "/rooms/schedule_room/#{room.id}" %></td>
         <% if logged_in_as_admin? %>
         <td><%= link_to 'Edit', edit_room_path(room) %></td>
-        <td><%= link_to 'Destroy', room, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= button_to 'Destroy', room, method: :delete,'data-no-turbolink' => true, data: { confirm: 'Are you sure?' } %></td>
          <% end %>
       </tr>
     <% end %>

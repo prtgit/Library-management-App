@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html>
   <head style="margin-bottom: auto">
-    <title><%= yield(:title) %> | Library</title>
+    <%= javascript_include_tag :all, "data-turbolinks-track" => false %>
     <%= csrf_meta_tags %>
+    <title><%= yield(:title) %> | Library</title>
+
 
     <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" />
-    <%= javascript_include_tag :defaults%>
+
     <%if(logged_in? && logged_in_as_admin?)%>
         <header class="navbar navbar-fixed-top row" style="margin-bottom: 10px;">
             <nav>
