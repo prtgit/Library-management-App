@@ -31,7 +31,9 @@ class BookingsController < ApplicationController
   def create
     @booking = Booking.new(booking_params)
     @booking.booked_by = User.find(session[:user_id]).name
+    if(!@booking.user_id)
     @booking.user_id = session[:user_id]
+    end
     #@allbookings = Booking.where("room_id= ?","#{booking_params[:room_id]}")
     if(@booking.booking> Time.now + 7.days || @booking.booking < Time.now)
      respond_to do |format|
