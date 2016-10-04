@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   include SessionsHelper
-  before_action :set_user, only: [:show,:edit, :update, :destroy]
+  before_action :set_user, only: [:show,:edit,:booking_history,:update, :destroy]
 
   # GET /users
   # GET /users.json
@@ -96,6 +96,10 @@ end
     end
   end
 
+  #GET /rooms/1/schedule_room
+  def booking_history
+    @bookingUser = Booking.where("user_id =?","#{@user.id}").order(:booking)
+  end
   def search_user
     if !logged_in_as_admin?
       #Invalid or no cookie recieved in request, flash error

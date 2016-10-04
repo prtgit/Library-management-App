@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   get    'rooms/search'   => 'rooms#search_room'
   get 'users/history' => 'users#get_history'
   get '/rooms/schedule_room/:id' => 'rooms#schedule_room'
+  get '/users/booking_history/:id' => 'users#booking_history'
   resources :bookings
   resources :rooms
   resources :users

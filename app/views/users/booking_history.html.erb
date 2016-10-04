@@ -1,0 +1,33 @@
+<br/>
+<p id="notice"><%= notice %></p>
+<%if @bookingUser.count == 0%>
+    <b>This user has no history!!</b>
+<%else%>
+    <table class="table table-striped">
+      <thead>
+      <tr>
+        <th>Booking Time</th>
+        <th>Room</th>
+        <!--<th>Cancelled by</th>-->
+        <th>Cancelled</th>
+        <th>Booked by</th>
+        <th colspan="3"></th>
+      </tr>
+      </thead>
+
+      <tbody>
+      <% @bookingUser.each do |booking| %>
+          <tr>
+            <td><%= booking.booking %></td>
+            <td><%= (Room.find(booking.room_id)).number %></td>
+            <td><%= booking.cancelled %></td>
+            <td><%= booking.booked_by%></td>
+            <td><%= link_to 'Show', booking %></td>
+      </tr>
+      </tbody>
+    </table>
+<%end%>
+<%end%>
+<br>
+
+<%= link_to 'New Booking', new_booking_path %>
