@@ -1,24 +1,22 @@
-<div style="width: 100%;height: 100%;>
-<% provide(:title, "Home") %>
-<br/>
-<%if !logged_in?%>
-    <h1>
-<div class="row" style="align-content:center;margin-left:40%;padding: 20px;">
-  <div class="col-md-6" >
+<div style="width: 100%;height: 100%;">
+    <% provide(:title, "Home") %>
+    <br/>
+    <%if !logged_in?%>
+    <div class="row" style="align-content:center;margin-left:40%;padding: 20px;">
+<div class="col-md-6" >
   <%= button_to "Login to continue", sessions_new_path,:class => "btn btn-success", :method => :get %>
-<br>
+  <br>
   <%= button_to "Not a Member? Sign Up!", new_user_path,:class => "btn btn-info", :method => :get %>
 </div>
-  </div>
-    </h1>
-    <%else%>
-    <br/>
-    <h1><span class="label label-primary">Welcome <%= @current_user.name %></span></h1>
-    <br/>
-    <%if logged_in_as_admin?%>
-    <%= render 'users/user_search_box' %>
-        <% end %>
-    <br/>
-    <%= render 'rooms/room_search_box' %>
+</div>
+<%else%>
+<br/>
+<h1><span class="label label-primary">Welcome <%= @current_user.name %></span></h1>
+<br/>
+<%if logged_in_as_admin?%>
+<%= render 'users/user_search_box' %>
+<% end %>
+<br/>
+<%= render 'rooms/room_search_box' %>
 <% end %>
 </div>

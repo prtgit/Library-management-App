@@ -49,17 +49,17 @@ end
     end
     @user.is_root = false
     if(User.all.count == 0)
-          @user.is_admin = true
-          @user.is_root = true
+      @user.is_admin = true
+      @user.is_root = true
     end
     respond_to do |format|
       if @user.save
         if logged_in?
-        format.html { redirect_to @user, notice: 'User was successfully created.' }
-        format.json { render :show, status: :created, location: @user }
+          format.html { redirect_to @user, notice: 'User was successfully created.' }
+          format.json { render :show, status: :created, location: @user }
         else
           format.html { redirect_to "/", notice: 'User was successfully created.' }
-          end
+        end
       else
         format.html { render :new }
         format.json { render json: @user.errors, status: :unprocessable_entity }
@@ -85,6 +85,10 @@ end
   # DELETE /users/1
   # DELETE /users/1.json
   def destroy
+    @bookingsForUser = Booking.where("user_id = ?","#{@user.id}")
+    @bookingsForUser.each do|bookie|
+      bookie.destroy
+    end
     @user.destroy
     respond_to do |format|
       format.html { redirect_to users_url, notice: 'User was successfully destroyed.' }
