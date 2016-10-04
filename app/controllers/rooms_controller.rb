@@ -75,7 +75,7 @@ class RoomsController < ApplicationController
       @rooms = Room.where("building like ? ", "%#{params[:q]}%")
       @query = params[:q]
     elsif params[:search_by] == "size"
-      @rooms = Room.where("size like ? ", "%#{params[:q]}%") # changing ==to = for postgres
+      @rooms = Room.where("size =? ", "%#{params[:q]}%") # changing ==to = for postgres
       @query = params[:q]
     elsif params[:search_by] == "Number"
       @rooms = Room.where("number =? ", "#{params[:q]}") # changing ==to = for postgres
