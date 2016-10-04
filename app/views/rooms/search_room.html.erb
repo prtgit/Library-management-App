@@ -27,6 +27,7 @@ Displaying search results for "<%= @query %>"
       <td><%= room.size%></td>
       <% if logged_in_as_admin? %>
           <td><%= button_to "Update Room", edit_room_path(room), method: :get %></td>
+          <td><%= link_to 'Status for today', "/rooms/schedule_room/#{room.id}" %></td>
 	  <td><%= button_to 'Delete Room',room, method: :delete, data: { confirm: 'Are you sure?' } %></td>
 		<% end %>
           </tr>
