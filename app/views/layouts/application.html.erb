@@ -32,7 +32,7 @@
               <li role="presentation"><div class="col-md-8"><span class="label label-success">Welcome <%= @current_user.name %>  </span></div></li>
               <li role="presentation" ><div class="col-md-3"><%= link_to 'Home', root_path %></div></li>
               <li role="presentation" ><div class="col-md-3"><%= link_to 'New Booking', new_booking_path %></div></li>
-              <li role="presentation" ><div class="col-md-3"><%= link_to "Manage Bookings", bookings_path %></div></li>
+              <li role="presentation" ><div class="col-md-3"><%= link_to 'Booking History', "/users/booking_history/#{@current_user.id}"%></div></li>
               <li role="presentation" ><div class="col-md-3"><%= link_to "View Rooms/Schedule", rooms_path %></div></li>
               <li role="presentation" ><div class="col-md-3"><%= link_to "Edit My Profile", edit_user_path(@current_user.id) %></div></li>
               <li role="presentation"><div class="col-md-6"><span class="glyphicon glyphicon-off" aria-hidden="true"><%= link_to "Logout", logout_path %></span></div></li>
