@@ -57,7 +57,7 @@ class RoomsController < ApplicationController
   # DELETE /rooms/1
   # DELETE /rooms/1.json
   def destroy
-    @bookingsForRoom = Booking.where("room_id == ?","%#{@room.id}%");
+    @bookingsForRoom = Booking.where("room_id = ?","#{@room.id}");
     @bookingsForRoom.each do|bookie|
       bookie.destroy
     end
