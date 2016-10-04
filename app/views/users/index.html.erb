@@ -1,3 +1,4 @@
+<br/>
 <p id="notice"><%= notice %></p>
 <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" />
 <h3><span class="label label-primary">Users</span></h3>
@@ -31,7 +32,7 @@
             <%end%>
         <td><%= link_to 'Show', (user) %></td>
         <%if user.is_root != true && logged_in_as_admin? && user.id!=session[:user_id]%>
-        <td><%= button_to 'Delete', user, method: :delete %></td>
+        <td><%= button_to 'Delete', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
             <% end %>
       </tr>
     <% end %>
