@@ -19,8 +19,7 @@
       <tr>
         <td><%= booking.booking %></td>
         <td><%= (User.find(booking.user_id)).name %></td>
-        <td><%=  %></td> <!--(Room.find(booking.room_id)).number-->
-        <!--<td><%= booking.cancelled_by %></td>-->
+        <td><%= (Room.find(booking.room_id)).number %></td>
         <td><%= booking.cancelled %></td>
         <td><%= booking.booked_by%></td>
         <td><%= link_to 'Show', booking %></td>
