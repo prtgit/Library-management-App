@@ -7,4 +7,7 @@ class Room < ApplicationRecord
   VALID_BUILDING_REGEX = /(D.H.Hill|James.B.Hunt)/
   validates :building, presence: true,
             format: { with: VALID_BUILDING_REGEX }
+  VALID_Status_REGEX = /(Available)/
+  validates :status, presence: true,
+            format: { with: VALID_Status_REGEX }
 end

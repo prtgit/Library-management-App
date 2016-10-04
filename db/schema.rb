@@ -35,13 +35,14 @@ ActiveRecord::Schema.define(version: 20160921014640) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "email"
-    t.string   "password_digest"
-    t.string   "name"
-    t.boolean  "is_admin"
-    t.boolean  "is_root"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.text    "email"
+    t.text    "password_digest"
+    t.text    "name"
+    t.integer "is_admin"
+    t.integer "is_root"
+    t.text    "created_at",      null: false
+    t.text    "updated_at",      null: false
+    t.index ["id", "id"], name: "sqlite_autoindex_users_1", unique: true
   end
 
 end
