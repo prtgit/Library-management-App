@@ -57,6 +57,10 @@ class RoomsController < ApplicationController
   # DELETE /rooms/1
   # DELETE /rooms/1.json
   def destroy
+    @bookingsForRoom = Booking.where("room_id == ?","%#{@room.id}%");
+    @bookingsForRoom.each do|bookie|
+      bookie.destroy
+    end
     @room.destroy
     respond_to do |format|
       format.html { redirect_to rooms_url, notice: 'Room was successfully destroyed.' }
