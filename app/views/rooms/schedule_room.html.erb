@@ -1,26 +1,26 @@
 <br/>
 <p id="notice"><%= notice %></p>
+<h><b>Today's Bookings:</b></h>
+<br/>
 <%if @bookingsWeek.count == 0%>
     <b>This room is available at all times today. Go ahead and book!!</b>
  <%else%>
+    <% @bookingsWeek.each do |booking| %>
 <table class="table table-striped">
   <thead>
   <tr>
-    <% @bookingsWeek.each do |booking| %>
     <th><%=(booking.booking.strftime("%H:%M"))%> - <%=(booking.booking + 2.hours).strftime("%H:%M")%></th>
-    <% end %>
   </tr>
   </thead>
 
   <tbody>
       <tr>
-        <% @bookingsWeek.each do |booking| %>
-        <td>Booked</td>
-            <% end %>
+        <td><h4><span class="label label-danger">Booked</span></h4></td>
       </tr>
   </tbody>
 </table>
 <%end%>
+    <% end %>
 <br>
 
 <%= link_to 'New Booking', new_booking_path %>

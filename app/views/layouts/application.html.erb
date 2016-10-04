@@ -12,7 +12,7 @@
         <header class="navbar navbar-fixed-top row" style="margin-bottom: 10px;">
             <nav>
               <ul class="nav nav-pills" style="background-color: #DADADA">
-                <li role="presentation"><div class="col-md-8"><span class="label label-success">Welcome <%= @current_user.name %>  </span></div></li>
+                <li role="presentation"><div class="col-md-8"><h4><span class="label label-success">Welcome <%= @current_user.name %></span></h4></div></li>
                 <li role="presentation" ><div class="col-md-3"><%= link_to 'Home', root_path %></div></li>
                 <li role="presentation" ><div class="col-md-3"><%= link_to 'New User', new_user_path %></div></li>
                 <li role="presentation" > <div class="col-md-3"><%= link_to 'New Room', new_room_path %></div></li>

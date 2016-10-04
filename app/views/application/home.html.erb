@@ -11,7 +11,6 @@
 </div>
 <%else%>
 <br/>
-<h1><span class="label label-primary">Welcome <%= @current_user.name %></span></h1>
 <br/>
 <%if logged_in_as_admin?%>
 <%= render 'users/user_search_box' %>
