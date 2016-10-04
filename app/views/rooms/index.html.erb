@@ -6,6 +6,7 @@
     <tr>
       <th>Number</th>
       <th>Building</th>
+      <th>Status</th>
       <th>Size</th>
       <th colspan="4"></th>
     </tr>
@@ -16,6 +17,7 @@
       <tr>
         <td><%= room.number %></td>
         <td><%= room.building %></td>
+        <td><%= room.status %></td>
         <td><%= room.size %></td>
         <td><%= link_to 'Show', room %></td>
         <td><%= link_to 'Status for today', "/rooms/schedule_room/#{room.id}" %></td>
