@@ -52,7 +52,17 @@ class BookingsController < ApplicationController
             end
             return
           end
+    end
+    @allBookingsUser = Booking.where("cancelled =? AND user_id= ?",'f',"#{booking_params[:user_id]}")
+    @allBookingsUser.each do |book|
+      if (!logged_in_as_admin? && book.booking>=Time.now - 2.hours)
+        respond_to do |format|
+          format.html { redirect_to new_booking_path ,notice: "Please get in touch with admin to reserve another room.You have a current booking!!"}
+          format.json { render json: @booking.errors, status: :unprocessable_entity }
+        end
+        return
       end
+    end
     respond_to do |format|
       if @booking.save
         format.html { redirect_to @booking, notice: 'Booking was successfully created.' }
