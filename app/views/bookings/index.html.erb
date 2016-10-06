@@ -26,7 +26,7 @@
         <%if(session[:user_id] == booking.user_id)||logged_in_as_admin?%>
         <td><%= link_to 'Edit/Cancel', edit_booking_path(booking) %></td>
 
-        <td><%= button_to 'Delete', booking, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= button_to 'Release', booking, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         <%end%>
       </tr>
     <% end %>
