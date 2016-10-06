@@ -10,9 +10,22 @@ Test Cases:
 * However, we have a root user with the following credentials:
 Email: admin@admin.com
 Password: password
-Sign up as a library member and go to manage users from the root login.
+PLEASE DON'T CHANGE THIS. WE BEG YOU!! :D
+* Sign up as a library member and go to manage users from the root login.
 You can upgrade your membership to have admin access.
 
-Thank you!!
+##View Room Schedule:
+
+Both Admins and Library Members can view reservation schedule for the day. There's a tab to view that!
+
+##View Booking History:
+
+Again, you have a tab!
+
+##Special Cases:(Maintaining Data-integrity at deletion)
+* Deleting a user with an active booking, deletes that booking as well as booking history of the user
+* Deleting a room with bookings, releases those bookings as well as booking history for that room.
+
+##Thank you!!
 
 
