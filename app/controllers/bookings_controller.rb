@@ -53,7 +53,7 @@ class BookingsController < ApplicationController
             return
           end
     end
-    @allBookingsUser = Booking.where("cancelled =? AND user_id= ?",'f',"#{booking_params[:user_id]}")
+    @allBookingsUser = Booking.where("cancelled =? AND user_id= ?",'f',"#{session[:user_id]}")
     @allBookingsUser.each do |book|
       if (!logged_in_as_admin? && book.booking>=Time.now - 2.hours)
         respond_to do |format|
