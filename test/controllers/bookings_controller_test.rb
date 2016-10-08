@@ -1,5 +1,5 @@
 require 'test_helper'
-
+#Test Class
 class BookingsControllerTest < ActionDispatch::IntegrationTest
   setup do
     @booking = bookings(:one)
