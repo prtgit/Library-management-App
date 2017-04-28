@@ -1,6 +1,6 @@
 # README
 
-Welcome to the Library Management application. Also, Thanks for taking the time out to read this.
+Welcome to the Library Management application. Also, Thank you for taking the time out to read this.
 
 Test Cases:
 
